@@ -292,17 +292,8 @@ void Widget::onStartRecord() {
     }
 
     // initializeCamera( ui->cameraSel->currentIndex());
-    if (!mediaRecorder) {
-        qDebug() << "----------------mediaRecorder is not initialized.";
-        return;
-    }
-    if ( !camera) {
-        qDebug() << "-------------camera is null.";
-        return;
-    }
-    if ( !camera->isActive()) {
-        qDebug() << "-------------camera is not isActive.";
-        // camera->setActive(true);
+    if (!mediaRecorder || !camera || !camera->isActive()) {
+        qDebug() << "----------------mediaRecorder or camera is not initialized.";
         return;
     }
 
